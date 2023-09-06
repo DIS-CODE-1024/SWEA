@@ -32,10 +32,11 @@ public class D3_10761 {
             			cnt++;
             		}
             		else {
-            			Bmov += (Math.abs(Bpos - target + Omov) + 1);
-            			cnt += (Math.abs(Bpos - target + Omov) + 1);
-            			Omov = 0;
+            			Bmov += (Math.abs(Bpos - target) - Omov + 1);
+            			cnt += (Math.abs(Bpos - target) - Omov + 1);
             		}
+            		Omov = 0;
+            		Bpos = target;
             	}
             	else {
             		if (Bmov >= Math.abs(Opos - target)) {
@@ -43,13 +44,12 @@ public class D3_10761 {
             			cnt++;
             		}
             		else {
-            			Omov += (Math.abs(Opos - target + Bmov) + 1);
-            			cnt += (Math.abs(Opos - target + Bmov) + 1);
-            			Bmov = 0;
+            			Omov += (Math.abs(Opos - target) - Bmov + 1);
+            			cnt += (Math.abs(Opos - target) - Bmov + 1);
             		}
+            		Bmov = 0;
+            		Opos = target;
             	}
-            	
-            	System.out.println(Bpos + " " + Opos + " " + cnt);
             }
             
             sb.append(cnt);
